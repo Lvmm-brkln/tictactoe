@@ -1,7 +1,11 @@
+# This program sets the entire tictactoe's behaviour. 
+# How do the different methods interract with each other.
+# And how the program runs.
 load 'board.rb'
 load 'boardcase.rb'
 load 'player.rb'
 
+# Define the main Class called Game
 class Game
   attr_accessor :player_1, :player_2, :board
 
@@ -16,7 +20,7 @@ class Game
   end
 
 
-
+# Define if the player can choose or not a case to play on.
   def check_if_empty(player)
     @entry = gets.chomp
     if @board.boardcase.keys.include?(@entry)
@@ -35,7 +39,7 @@ class Game
   end
 
 
-
+# Define the general method of a game
     def play
       @board.print_board
       9.times do |turns|
@@ -46,7 +50,7 @@ class Game
     end
 
 
-
+# Define how does a turn runs.
   def turn
     puts "#{@player_1.name}'s turn."
     puts "Choose your case:"
@@ -69,7 +73,7 @@ class Game
   end
 
 
-
+# Define the conditions to end the game(a player or the other wins//Draw).
   def win
     table_keys = @board.boardcase.values
     if @board.boardcase["a1"].shape == @board.boardcase["a2"].shape && @board.boardcase["a3"].shape == "x" && @board.boardcase["a2"].shape == "x" ||
@@ -108,6 +112,9 @@ else
 end
 end
 
+
+# Ask to run the program and ask f the player want to play again.
+# If yes, the game starts again.
 loop do
 game_1 = Game.new
 game_1.play
