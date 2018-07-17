@@ -1,3 +1,4 @@
+# Defines the Board class, how does it look like, and creates a hash for every boardcase.
 class Board
   attr_accessor :boardcase
 
